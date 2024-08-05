@@ -1,10 +1,13 @@
 name: Build
 on:
   push:
-    branches:
-      - master
+    branches: [ develop ]
   pull_request:
-    types: [opened, synchronize, reopened]
+    # The branches below must be a subset of the branches above
+    branches: [ develop ]
+  schedule:
+    - cron: '40 7 * * 3'
+
 jobs:
   sonarcloud:
     name: SonarCloud
